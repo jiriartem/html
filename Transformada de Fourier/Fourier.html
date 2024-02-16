@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformada de Fourier</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="originalCanvas" width="400" height="200"></canvas>
+    <canvas id="transformCanvas" width="400" height="200"></canvas>
+
+    <script>
+        function fft(x) {
+            const N = x.length;
+            if (N <= 1) {
+                return x;
+            }
+
+            const even = fft(x.filter((_, i) => i % 2 === 0));
+            const odd = fft(x.filter((_, i) => i % 2 !== 0));
+            const factor = Array.from({ length: N }, (_, i) => {
+                const real = Math.cos(-2 * Math.PI * i / N);
+                const imag = Math.sin(-2 * Math.PI * i / N);
+                return { re: real, im: imag };
+            });
+            return even.concat(
+                even.map((val, i) => {
+                    const real = factor[i].re * odd[i].re - factor[i].im * odd[i].im;
+                    const imag = factor[i].re * odd[i].im + factor[i].im * odd[i].re;
+                    return { re: val.re + real, im: val.im + imag };
+                }),
+                even.map((val, i) => {
+                    const real = factor[i].re * odd[i].re - factor[i].im * odd[i].im;
+                    const imag = factor[i].re * odd[i].im + factor[i].im * odd[i].re;
+                    return { re: val.re - real, im: val.im - imag };
+                })
+            );
+        }
+
+        // Generar una señal de ejemplo
+        const signal = [];
+        for (let i = 0; i < 100; i++) {
+            signal.push(Math.sin(2 * Math.PI * i / 25) + Math.sin(2 * Math.PI * i / 10));
+        }
+
+        // Calcular la transformada de Fourier
+        const transformada = fft(signal.map(val => ({ re: val, im: 0 })));
+
+        // Dibujar la señal original
+        const originalCanvas = document.getElementById('originalCanvas');
+        const originalCtx = originalCanvas.getContext('2d');
+        new Chart(originalCtx, {
+            type: 'line',
+            data: {
+                labels: Array.from({ length: signal.length }, (_, i) => i),
+                datasets: [{
+                    label: 'Señal original',
+                    data: signal,
+                    fill: false,
+                    borderColor: 'blue',
+                    tension: 0.1
+                }]
+            }
+        });
+
+        // Dibujar la transformada de Fourier
+        const transformCanvas = document.getElementById('transformCanvas');
+        const transformCtx = transformCanvas.getContext('2d');
+        new Chart(transformCtx, {
+            type: 'line',
+            data: {
+                labels: Array.from({ length: transformada.length }, (_, i) => i),
+                datasets: [{
+                    label: 'Transformada de Fourier',
+                    data: transformada.map(val => Math.sqrt(val.re * val.re + val.im * val.im)),
+                    fill: false,
+                    borderColor: 'red',
+                    tension: 0.1
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
