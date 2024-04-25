@@ -16,6 +16,6 @@ Desde que tenemos **Pi** fácilmente accesible en librerías, calculadoras... he
 
 Ejemplo de refactorización del algoritmo de **Bresenham** para dibujar circunferencias basadas en los algoritmos con los que se genera el valor de **Pi**, en lugar de usar el valor de **Pi** desde alguna librería.
 
-Ver el código en el archivo https://github.com/jiriartem/html/bresenham.html
+Ver el código en el archivo [https://github.com/jiriartem/html/bresenham.html](https://github.com/jiriartem/html/blob/main/bresenham.html)
 
 ![image](https://github.com/jiriartem/html/assets/77533807/f63cdd46-38c9-42bd-a151-c76640d955b5)
