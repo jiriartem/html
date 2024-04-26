@@ -42,23 +42,23 @@
             const canvas = document.getElementById('myCanvas');
             const context = canvas.getContext('2d');
 
-            calculateCirclePointsBresenhamReduxed(context, 200, 200, 200);
+            // Llamada inicial
+			calculateCirclePointsBresenhamReduxed(context, 200, 200, 200);
 
-            for (let i = 300; i >= 100; i -= 200) {
-                calculateCirclePointsBresenhamReduxed(context, i, 200, 100);
-            }
+			// Valores para los bucles
+			const iterations = [
+				{ start: 300, end: 100, step: 200, y: 100 },
+				{ start: 350, end: 50, step: 100, y: 50 },
+				{ start: 375, end: 25, step: 50, y: 25 },
+				{ start: 388, end: 12, step: 25, y: 12 }
+			];
 
-            for (let i = 350; i >= 50; i -= 100) {
-                calculateCirclePointsBresenhamReduxed(context, i, 200, 50);
-            }
-
-            for (let i = 375; i >= 25; i -= 50) {
-                calculateCirclePointsBresenhamReduxed(context, i, 200, 25);
-            }
-
-            for (let i = 388; i >= 12; i -= 25) {
-                calculateCirclePointsBresenhamReduxed(context, i, 200, 12);
-            }
+			// Bucles para iterar sobre los valores
+			iterations.forEach(iteration => {
+				for (let i = iteration.start; i >= iteration.end; i -= iteration.step) {
+					calculateCirclePointsBresenhamReduxed(context, i, 200, iteration.y);
+				}
+			});
         };
     </script>
 </body>
