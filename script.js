@@ -1,3 +1,5 @@
+/*En bresenham.html ya está, si lo quieres usar aparte...*/
+
 function calculateCirclePointsBresenhamReduxed(context, x, y, r) {
     let x1 = 0;
     let y1 = r;
