@@ -10,6 +10,8 @@ Desde que tenemos **Pi** fácilmente accesible en librerías, calculadoras... he
     
   - Por otra parte podríamos caer en errores al contar con cálculos hechos con diferentes *'versiones'* de **Pi**... en estos casos quizás algo no nos de el resultado que esperamos y lo desechamos por error, por no entrar en la letra pequeña de cómo se calcula **Pi**.
   
+  - Pi, o llamémosle la función para obtener Pi... es base de muchas otras cosas, pasando por senos, cosenos... hasta su uso extensivo en diversas fórmulas. Si estamos usando conceptos derivados de Pi sin tener en cuenta el grado de precisión y en un momento dado los datos que tenemos tienen un Pi más preciso que lo previamente calculado... creeremos estar caminando hacia una mayor precisión pero en realidad estaremos cayendo en incongruencias.
+  
    En muchos casos puede ser irrelevante pero en algunas circunstancias no tener eso en cuenta... puede ser crítico para el avance de tu investigación.
 
   
