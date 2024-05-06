@@ -21,3 +21,8 @@ Ejemplo de refactorización del algoritmo de **Bresenham** para dibujar circunfe
 Ver el código en el archivo [https://github.com/jiriartem/html/bresenham.html](https://github.com/jiriartem/html/blob/main/bresenham.html)
 
 ![image](https://github.com/jiriartem/html/assets/77533807/f63cdd46-38c9-42bd-a151-c76640d955b5)
+
+Referencias relacionadas:
+
+Taylor-series and Monte-Carlo-method uncertainty estimation of the width of a probability distribution based on varying bias and random error
+https://iopscience.iop.org/article/10.1088/0957-0233/24/3/035301
