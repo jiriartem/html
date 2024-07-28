@@ -22,6 +22,9 @@ Ver el código en el archivo [https://github.com/jiriartem/html/bresenham.html](
 
 ![image](https://github.com/jiriartem/html/assets/77533807/f63cdd46-38c9-42bd-a151-c76640d955b5)
 
+Ejemplo sencillo de uso:
+https://github.com/jiriartem/PiAccuracy
+
 Referencias relacionadas:
 
 Taylor-series and Monte-Carlo-method uncertainty estimation of the width of a probability distribution based on varying bias and random error:
@@ -31,3 +34,4 @@ https://iopscience.iop.org/article/10.1088/0957-0233/24/3/035301
 Coupling Constants as Conserved Charges in Black Hole Thermodynamics:
 
 https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.132.191401
+
