@@ -1,0 +1,19 @@
+Clásicamente el algoritmo fiable, pero que converge lentamente de Leibniz multiplica por 4 al final,  ¿Qué tal si no esperamos tanto? Mejora la convergencia y la simplicidad es máxima!
+
+static double CalculatePiMiddleFour(int terms)
+        {
+            double sum = 0.0;
+            double termsGreater = terms * 1000;
+            double numDecPorCuatro = 4.0 / termsGreater;
+            //double numDecPorCuatro = 0.000004;
+
+            for (int i = 0; i < terms; i++)
+            {
+                // Ajustamos el denominador para evitar la multiplicación final por 4
+                sum += Math.Pow(-1, i) / ((2 * i + 1) / numDecPorCuatro);  // Eliminar el 4 del final
+            }
+            double pi = sum * termsGreater;
+
+            return pi;  // Ahora sum debería converger directamente a pi sin multiplicar por 4
+
+        }
